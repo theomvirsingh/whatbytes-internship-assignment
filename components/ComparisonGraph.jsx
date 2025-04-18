@@ -50,11 +50,11 @@ const ComparisonGraph = () => {
   const userPercentile = 30;
 
   return (
-    <div className="border border-gray-200 rounded-lg p-4 mt-4 w-[650px] shadow-sm">
-      <div className="flex justify-between items-start">
+    <div className="border border-gray-200 rounded-lg p-3 sm:p-4 mt-4 w-full shadow-sm">
+      <div className="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0">
         <div>
-          <h2 className="font-bold text-lg mb-2">Comparison Graph</h2>
-          <p className="text-sm text-gray-600">
+          <h2 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">Comparison Graph</h2>
+          <p className="text-xs sm:text-sm text-gray-600">
             <span className="font-semibold text-gray-800">
               You scored 30% percentile
             </span>{" "}
@@ -63,18 +63,19 @@ const ComparisonGraph = () => {
           </p>
         </div>
         <div className="bg-gray-100 p-2 rounded-full">
-          <TbBrandGoogleAnalytics className="text-xl text-red-500" />
+          <TbBrandGoogleAnalytics className="text-lg sm:text-xl text-red-500" />
         </div>
       </div>
 
-      <ResponsiveContainer width="100%" height={250}>
-        <LineChart data={data} connectNulls={true}>
+      <ResponsiveContainer width="100%" height={200} className="mt-2 sm:mt-0 sm:h-[250px]">
+        <LineChart data={data} connectNulls={true} margin={{ top: 10, right: 10, left: 0, bottom: 10 }}>
           <XAxis
             dataKey="percentile"
             ticks={[0, 25, 50, 75, 100]}
             type="number"
             domain={[0, 100]}
             allowDuplicatedCategory={false}
+            tick={{ fontSize: 10 }}
           />
           <YAxis hide />
           <Tooltip content={<CustomTooltip />} />
@@ -85,6 +86,7 @@ const ComparisonGraph = () => {
               value: "your percentile",
               position: "insideBottomLeft",
               fill: "#999",
+              fontSize: 10,
             }}
           />
           <Line
@@ -92,8 +94,8 @@ const ComparisonGraph = () => {
             dataKey="numberOfStudent"
             stroke="#8B5CF6"
             strokeWidth={1}
-            dot={{ r: 4, fill: "#fff", stroke: "#8B5CF6", strokeWidth: 1 }}
-            activeDot={{ r: 6, fill: "#8B5CF6" }}
+            dot={{ r: 3, fill: "#fff", stroke: "#8B5CF6", strokeWidth: 1 }}
+            activeDot={{ r: 5, fill: "#8B5CF6" }}
           />
         </LineChart>
       </ResponsiveContainer>
