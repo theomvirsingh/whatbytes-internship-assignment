@@ -78,7 +78,7 @@ const ComparisonGraph = () => {
     <div className="border border-gray-200 rounded-lg p-3 sm:p-4 mt-4 w-full shadow-sm">
       <div className="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0">
         <div>
-          <h2 className="font-bold text-base sm:text-lg mb-1 sm:mb-2">
+          <h2 className="font-bold text-base text-gray-900 sm:text-lg mb-1 sm:mb-2">
             Comparison Graph
           </h2>
           <p className="text-xs sm:text-sm text-gray-600">

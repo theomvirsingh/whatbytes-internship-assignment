@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell } from "recharts";
 
 const QuestionsAnalysis = () => {
   const total = 15;
-  const [correct, setCorrect] = useState(10);
+  const [correct, setCorrect] = useState(12);
 
   useEffect(() => {
     const savedStats = localStorage.getItem("userStats");

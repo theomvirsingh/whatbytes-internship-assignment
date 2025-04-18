@@ -83,16 +83,16 @@ const UpdateModal = ({ isOpen, onClose }) => {
   };
 
   const inputFields = [
-    { name: "rank", label: "Rank", placeholder: "Enter your rank" },
+    { name: "rank", label: "Rank", placeholder: "Rank" },
     {
       name: "percentile",
       label: "Percentile",
-      placeholder: "Enter percentile (0-100)",
+      placeholder: "Percentile",
     },
     {
       name: "score",
       label: "Current Score (out of 15)",
-      placeholder: "Enter score (0-15)",
+      placeholder: "Score",
     },
   ];
 
