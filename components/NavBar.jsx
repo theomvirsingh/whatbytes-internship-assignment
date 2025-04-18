@@ -9,7 +9,6 @@ const NavBar = () => {
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
-    // Dispatch a custom event that the Sidebar component will listen for
     document.dispatchEvent(
       new CustomEvent("toggle-sidebar", {
         detail: { isOpen: !isSidebarOpen },

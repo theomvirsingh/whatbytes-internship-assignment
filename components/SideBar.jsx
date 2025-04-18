@@ -24,38 +24,33 @@ const navItems = [
 const SideBar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  
-  // Handle window resize to show sidebar on larger screens
+
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1024) { // md breakpoint
+      if (window.innerWidth >= 1024) {
         setIsOpen(true);
       } else {
         setIsOpen(false);
       }
     };
-    
-    // Set initial state
+
     handleResize();
-    
-    // Add event listener
-    window.addEventListener('resize', handleResize);
-    
-    // Listen for toggle events from NavBar
+
+    window.addEventListener("resize", handleResize);
+
     const handleToggle = (e) => {
       setIsOpen(e.detail.isOpen);
     };
-    
-    document.addEventListener('toggle-sidebar', handleToggle);
-    
+
+    document.addEventListener("toggle-sidebar", handleToggle);
+
     // Cleanup
     return () => {
-      window.removeEventListener('resize', handleResize);
-      document.removeEventListener('toggle-sidebar', handleToggle);
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("toggle-sidebar", handleToggle);
     };
   }, []);
 
-  // Handle navigation item click on mobile - close sidebar
   const handleNavClick = () => {
     if (window.innerWidth < 1024) {
       setIsOpen(false);
@@ -64,31 +59,29 @@ const SideBar = () => {
 
   return (
     <>
-      {/* Overlay for mobile when sidebar is open */}
       {isOpen && (
-        <div 
+        <div
           className="lg:hidden fixed inset-0 bg-transparent z-20"
           onClick={() => setIsOpen(false)}
         />
       )}
-      
-      <div 
+
+      <div
         className={`
           fixed h-screen bg-white border-r border-gray-200 p-4 z-30
           transition-all duration-300 ease-in-out
-          ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
+          ${isOpen ? "translate-x-0" : "-translate-x-full"} 
           lg:translate-x-0 lg:w-1/6
           w-64
         `}
       >
-        {/* Close button - only visible on mobile */}
-        <button 
+        <button
           className="lg:hidden absolute top-4 right-4 text-gray-500 hover:text-gray-700"
           onClick={() => setIsOpen(false)}
         >
           <IoMdClose size={24} />
         </button>
-        
+
         <ul className="space-y-4 mt-8 lg:mt-0">
           {navItems.map((item) => (
             <Link key={item.name} href={item.path} onClick={handleNavClick}>

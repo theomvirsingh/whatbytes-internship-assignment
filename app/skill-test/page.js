@@ -15,8 +15,8 @@ export default function SkillTestPage() {
           <ComparisonGraph />
         </div>
         <div className="w-full lg:w-[42%] px-2">
-            <SyllabusWise />
-            <QuestionsAnalysis />
+          <SyllabusWise />
+          <QuestionsAnalysis />
         </div>
       </div>
     </div>
